@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>basichtmlpage</title>
+    <script id="sap-ui-bootstrap" src="resources/sap-ui-core.js" data-sap-ui-theme="sap_fiori_3"
+        data-sap-ui-resourceroots='{"com.chandu.ui5.basichtmlpage": "./"}' data-sap-ui-compatVersion="edge"
+        data-sap-ui-oninit="module:sap/ui/core/ComponentSupport" data-sap-ui-async="true"
+        data-sap-ui-libs="sap.m,sap.ui.layout" data-sap-ui-frameOptions="trusted"></script>
+    <script>
+        sap.ui.getCore().attachInit(function () {
+            var oImage = new sap.m.Image({
+                src: "img/UI5_logo.png",
+                decorative: false,
+                alt: "SAPUI5 Logo"
+            }).placeAt("content");
+            oImage.ontap = function (oEvent) {
+                alert("Hello UI5 World!");
+            };
+            // defining the event handler on instantiation:
+            var onPressImage = function (oEvent) {
+                alert("Hello UI5!");
+            }
+            var oImage2 = new sap.m.Image({
+                src: "img/UI5_logo.png",
+                decorative: false,
+                alt: "SAPUI5 Logo",
+                press: onPressImage
+            }).placeAt("content");
+            var oLabel = new sap.m.Label("rbgLabel", {
+                text: "Which logo do you like better?"
+            }).placeAt("content");
+            var oRadioButton = new sap.m.RadioButton({
+                text: "Left Logo"
+            });
+            var oRadioButton2 = new sap.m.RadioButton({
+                text: "Right Logo"
+            });
+            var oRadioButtonGroup = new sap.m.RadioButtonGroup({
+                columns: 2,
+                ariaLabelledBy: oLabel
+            });
+            oRadioButtonGroup.addButton(oRadioButton);
+            oRadioButtonGroup.addButton(oRadioButton2);
+            oRadioButtonGroup.placeAt("content");
+            new sap.m.Label("rbg2Label", {
+                text: "Do you speak JavaScript?"
+            }).placeAt("content");
+            new sap.m.RadioButtonGroup({
+                columns: 2,
+                buttons: [
+                    new sap.m.RadioButton({
+                        text: "Yes"
+                    }),
+                    new sap.m.RadioButton({
+                        text: "No"
+                    }),
+                ],
+                ariaLabelledBy: "rbg2Label"
+            }).placeAt("content");
+        });
+    </script>
+</head>
+
+<body class="sapUiBody" id='content'>
+    <!-- <div data-sap-ui-component data-name="com.chandu.ui5.basichtmlpage" data-id="container"
+        data-settings='{"id" : "basichtmlpage"}'></div> -->
+</body>
+
+</html>
