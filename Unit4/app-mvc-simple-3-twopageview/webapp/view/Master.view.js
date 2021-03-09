@@ -10,12 +10,12 @@ sap.ui.jsview("sapui5.demo.mvcapp.view.Master", {
      var aColumns = [ 
             new sap.m.Column({
                 header : new sap.m.Text({
-				    text : "ID"
+				    text : "Supplier ID"
 			    })
             }),
             new sap.m.Column({
                 header : new sap.m.Text({
-				    text : "Name"
+				    text : "Supplier Name"
 			    })
             })
         ];
