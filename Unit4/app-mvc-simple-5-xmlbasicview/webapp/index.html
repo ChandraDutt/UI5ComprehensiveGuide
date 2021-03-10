@@ -49,21 +49,16 @@
 		
 		sap.ui.getCore().setModel(oModel);
 		
-		var oPageMaster = sap.ui.view("masterPage", { 
+		// now we reach an area where it is getting more and more complicated with
+		// the automatically generated ids
+		var oAppView = sap.ui.view("appview", { 
 			type: sap.ui.core.mvc.ViewType.XML,
-			viewName: "sapui5.demo.mvcapp.view.Master",
+			viewName: "sapui5.demo.mvcapp.view.App",
 		});
 		
-		var oPageDetail = sap.ui.view("detailPage", { 
-			type: sap.ui.core.mvc.ViewType.XML,
-			viewName: "sapui5.demo.mvcapp.view.Detail",
-		});
+		var oApp = oAppView.byId("app");
 		
-		var oApp = new sap.m.App({
-			initialPage:"masterPage"
-		});
-		oApp.addPage(oPageMaster).addPage(oPageDetail);
-		oApp.placeAt("content");
+		oAppView.placeAt("content");
 		
 	</script>
 </head>
