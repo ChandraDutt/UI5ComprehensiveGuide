@@ -5,16 +5,10 @@ sap.ui.define([
 	"use strict";
 
 	return UIComponent.extend("sapui5.demo.mvcapp.Component", {
-
-    	metadata : {
-    		"rootView" : "sapui5.demo.mvcapp.view.App"
-    	},
 		
     	createContent : function() {
+    	    UIComponent.prototype.createContent.apply(this, arguments);
     	    
-    	    // call the base component's createContent function
-			var oRootView = UIComponent.prototype.createContent.apply(this, arguments);
-			
             var oData = {
                 "CountSuppliers" : "2",
                 "Suppliers":[  
@@ -47,8 +41,13 @@ sap.ui.define([
             oModel.setData(oData);
             
             // important to set the model on the component
-            // and not on the sapui5 core!!!!
+            // and not on the sapui5 core anymore!
             this.setModel(oModel);
+
+			var oRootView = sap.ui.view("appview", { 
+                type: sap.ui.core.mvc.ViewType.XML,
+                viewName: "sapui5.demo.mvcapp.view.App"
+            });
 			
 			oApp = oRootView.byId("app");
 			return oRootView;
